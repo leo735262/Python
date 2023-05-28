@@ -1,0 +1,5 @@
+pandas
+selenium
+webdriver_manager
+bs4
+argparse==1.4.0

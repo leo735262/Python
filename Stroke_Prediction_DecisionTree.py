@@ -18,9 +18,9 @@ def print_cloumn_stv(cloumn_name,cloumn_data):
           +f"\n{cloumn_name}欄位變異數:{statistics.variance(cloumn_data)}"
           +f"\n{cloumn_name}欄位標準差:{statistics.stdev(cloumn_data)}")
     
-def convalue_plt_scatter(cloumn_no):
+def convalue_plt_scatter(cloumn_no,cloumn_data):
     plt.figure(figsize=(19,10))
-    plt.scatter([j for j in range(len(age_cloumn))],age_cloumn,s=5)
+    plt.scatter([j for j in range(len(cloumn_data))],cloumn_data,s=5)
     plt.title(head[cloumn_no], {"fontsize" : 18})  # 設定標題及其文字大小
     plt.savefig(f"scatter chart cloumn {cloumn_no}_{head[cloumn_no]}.jpg",pad_inches=0.0)  
     plt.close()  
@@ -116,9 +116,9 @@ try:
     print_cloumn_stv("avg_glucose_level",avg_glucose_level)
     print_cloumn_stv("bmi",bmi_data)
 
-    convalue_plt_scatter(2)
-    convalue_plt_scatter(8)
-    convalue_plt_scatter(9)
+    convalue_plt_scatter(2,age_cloumn)
+    convalue_plt_scatter(8,avg_glucose_level)
+    convalue_plt_scatter(9,bmi_data)
 
     print(f"\n資料集總欄位數:{len(head)}\n"
         +f"資料集取用欄位數:{len(cleared_data[0])}\n"
